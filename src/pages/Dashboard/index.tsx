@@ -51,7 +51,7 @@ const Dashboard: React.FC = () => {
         );
         setBalance(response.data.balance);
       } catch (err) {
-        console.error(err);
+        console.error(err.response.error);
       }
     }
 
@@ -108,7 +108,7 @@ const Dashboard: React.FC = () => {
                 <tr key={transaction.id}>
                   <td className="title">{transaction.title}</td>
                   <td className={transaction.type}>
-                    {transaction.type === 'outcome' && '- '}
+                    {transaction.type === 'outcome' && ' - '}
                     {formatValue(transaction.value)}
                   </td>
                   <td>{transaction.category.title}</td>
